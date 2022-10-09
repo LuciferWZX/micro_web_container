@@ -1,8 +1,13 @@
 {
   "private": true,
-  "author":"LuciferWZX <2396423791@qq.com>",
+  "author": "LuciferWZX <2396423791@qq.com>",
+  "homepage": ".",
+  "main": "electron/main/index.js",
+  "license": "MIT",
   "scripts": {
     "dev": "umi dev",
+    "prestart": "tsc electron/main/index.ts",
+    "dev:electron": "pnpm prestart && ./node_modules/.bin/electron ./",
     "build": "umi build",
     "postinstall": "umi setup",
     "setup": "umi setup",
@@ -14,6 +19,8 @@
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "typescript": "^4.1.2"
+    "@umijs/plugins": "^4.0.24",
+    "electron": "^21.1.0",
+    "typescript": "^4.8.4"
   }
 }
