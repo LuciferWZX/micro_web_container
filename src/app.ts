@@ -2,15 +2,11 @@ export const getInitialState=async ()=>{
     console.log("11")
     return null
 }
-export const qiankun = ():any=>{
-    console.log('parent:',window?.mwcAPP)
-    return {
-        apps: [
-            {
-                name: 'mwc2',
-                entry: '//localhost:8002',
-                enable:false
-            },
-        ],
-    }
-};
+export const qiankun = {
+    apps: [
+        {
+            name: 'user_manage_system',
+            entry: '//localhost:8001',
+        },
+    ]
+}
