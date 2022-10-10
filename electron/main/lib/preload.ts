@@ -1,6 +1,6 @@
 const {contextBridge,ipcRenderer}=require('electron')
 contextBridge.exposeInMainWorld(
-    'app',
+    'mwcAPP',
     {
         win:{
             min:()=>ipcRenderer.send('min'),

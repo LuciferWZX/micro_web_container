@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "umi dev",
     "prestart": "tsc electron/main/index.ts",
-    "dev:electron": "pnpm prestart && ./node_modules/.bin/electron ./",
+    "dev:electron": "pnpm prestart && electron .",
     "build": "umi build",
     "postinstall": "umi setup",
     "setup": "umi setup",

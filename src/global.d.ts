@@ -1,7 +1,8 @@
 export {}
 declare global {
     interface Window {
-        app?: {
+        "is_mvc"?:boolean,
+        "mwcAPP"?: {
             win:{
                 min:Function,
                 max:Function
