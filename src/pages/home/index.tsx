@@ -8,7 +8,8 @@ const HomePage:FC=()=>{
 
     return(
         <div className={styles.homePage}>
-            <Tag style={{zIndex:999}} color="magenta" onClick={()=>setOpen(!isOpen)}>用户管理系统</Tag>
+            <Tag color="magenta" onClick={()=>setOpen(true)}>用户管理系统</Tag>
+
 
         </div>
     )

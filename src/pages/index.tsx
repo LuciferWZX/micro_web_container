@@ -1,8 +1,7 @@
-import yayJpg from '../assets/yay.jpg';
-
+import React from "react";
 export default function HomePage() {
     const maxWin=()=>{
-        const app = window.app
+        const app = window.mwcAPP
         if(app?.win.max){
             app.win.max()
         }
