@@ -7,7 +7,6 @@ export default defineConfig({
   plugins: [
     '@umijs/plugins/dist/initial-state',
     '@umijs/plugins/dist/model',
-    '@umijs/plugins/dist/qiankun',
   ],
   initialState: {},
   scripts:[
@@ -17,9 +16,6 @@ export default defineConfig({
     type:'hash'
   },
   model:{},
-  qiankun: {
-    master: {},
-  },
   outputPath:'electron/renderer',
   alias:{
     '@web':'/src',
