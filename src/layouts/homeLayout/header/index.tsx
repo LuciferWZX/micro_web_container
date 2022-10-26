@@ -1,10 +1,11 @@
 import React, {FC} from "react";
+import {StyledHeader} from "@/layouts/homeLayout/header/style";
 
 const Header:FC = () => {
   return(
-      <div>
+      <StyledHeader>
           this is header
-      </div>
+      </StyledHeader>
   )
 }
 export default Header
