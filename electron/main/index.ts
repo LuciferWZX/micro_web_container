@@ -11,8 +11,10 @@ if(!gotTheLock){
     let mainWindow:BrowserWindow|null = null;
     const createWindow =():BrowserWindow =>  {
         const win = new BrowserWindow({
-            width: 800,
-            height: 600,
+            width: 1120,
+            height: 620,
+            minWidth:1120,
+            minHeight:620,
             show:false,
             icon: path.resolve(__dirname, "./icon/logo.png"),
             webPreferences:{
