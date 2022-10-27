@@ -1,0 +1,1 @@
+export {default as ConnectedIcon} from "@/components/Icon/ConnectedIcon";

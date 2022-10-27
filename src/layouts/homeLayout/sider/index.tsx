@@ -1,12 +1,18 @@
 import React, {FC} from "react";
-import {MenuItem} from "@/components";
+import {Menu, MenuItem} from "@/components";
+import {ConnectedIcon} from "@/components/Icon";
 
 const Sider:FC = () => {
   return(
       <div>
-          <MenuItem>
-              websocket
-          </MenuItem>
+          <Menu selectedKeys={['socket']}>
+              <MenuItem id={'socket'} prefix={<ConnectedIcon/>}>
+                  socket
+              </MenuItem>
+              <MenuItem id={'json-parse'} prefix={<ConnectedIcon/>}>
+                  json解析
+              </MenuItem>
+          </Menu>
       </div>
   )
 }
