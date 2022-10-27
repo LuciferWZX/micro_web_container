@@ -9,6 +9,9 @@ export default defineConfig({
     '@umijs/plugins/dist/model',
   ],
   initialState: {},
+  clickToComponent:{
+    editor:"WebStorm"
+  },
   scripts:[
       `window.is_mvc = true;`
   ],
