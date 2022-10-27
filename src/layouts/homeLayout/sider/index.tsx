@@ -1,9 +1,12 @@
 import React, {FC} from "react";
+import {MenuItem} from "@/components";
 
 const Sider:FC = () => {
   return(
       <div>
-          this is Sider
+          <MenuItem>
+              websocket
+          </MenuItem>
       </div>
   )
 }
