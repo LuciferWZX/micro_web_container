@@ -17,6 +17,8 @@ const routes:any[]=[
         routes: [
             { path: '/',redirect:'/home'},
             { path: '/home', component: 'home' },
+            { path: '/socket', component: 'socket' },
+            { path: '/json', component: 'json' },
         ],
     }, ]
 export default routes

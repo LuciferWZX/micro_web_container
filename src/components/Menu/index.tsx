@@ -6,17 +6,20 @@ interface IMenuItemProps{
     children:React.ReactElement[]
     onClick?:MouseEventHandler<HTMLUListElement>
     selectedKeys?:string[]
+    className?:string
+    isScroll?:boolean
 }
 const Menu:FC<IMenuItemProps> = (props) => {
-    const {children,onClick,selectedKeys}=props
+    const {children,onClick,selectedKeys,className,isScroll}=props
 
 
     return(
-        <StyledMenu  onClick={onClick}>
-            <Space direction={"vertical"}>
+        <StyledMenu className={`${className ?? ''}`}  onClick={onClick}>
+            <Space direction={"vertical"} className={'space-class'}>
                 {React.Children.map(children,(child)=>{
                     return React.cloneElement(child,{
-                        selectedKeys:selectedKeys
+                        selectedKeys:selectedKeys,
+                        isScroll:isScroll
                     })
                 })}
             </Space>

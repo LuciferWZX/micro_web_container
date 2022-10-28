@@ -5,7 +5,7 @@ const HomePage:FC=()=>{
 
     return(
         <div className={styles.homePage}>
-            homePage
+            这是个工具软件
         </div>
     )
 }

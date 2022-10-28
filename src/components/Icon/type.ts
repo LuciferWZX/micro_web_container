@@ -4,4 +4,5 @@ export interface IIcon{
     className?:string
     onClick?:MouseEventHandler<HTMLElement>
     style?:React.CSSProperties
+    rotate?:number
 }

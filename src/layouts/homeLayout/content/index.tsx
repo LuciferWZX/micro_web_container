@@ -1,13 +1,13 @@
 import React, {FC} from "react";
+import {StyledContent} from "@/layouts/homeLayout/content/style";
 interface IProps{
     children?:React.ReactNode
 }
 const Content:FC<IProps> = (props) => {
   return(
-      <div>
-          this is Content
+      <StyledContent>
           {props.children}
-      </div>
+      </StyledContent>
   )
 }
 export default Content

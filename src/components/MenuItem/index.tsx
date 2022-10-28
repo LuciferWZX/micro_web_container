@@ -8,19 +8,26 @@ interface IMenuItemProps{
     id:string
     onClick?:(e:React.MouseEvent<HTMLLIElement>)=>void
     prefix?:React.ReactNode,
-    selectedKeys?:string[]
+    selectedKeys?:string[],
+    isScroll?:boolean
 }
 const MenuItem:FC<IMenuItemProps> = (props) => {
-    const {children,onClick,prefix,selectedKeys}=props
-    console.log(111,selectedKeys,props)
+    const {children,onClick,prefix,selectedKeys,isScroll}=props
+
     const classes=classNames({
-        'menu-active':selectedKeys?.includes(props.id)
+        'menu-active':selectedKeys?.includes(props.id),
+        'menu-scroll':isScroll
     })
     return(
-        <StyledMenuItem className={classes} onClick={onClick}>
-            <Space>
+        <StyledMenuItem className={classes} onClick={onClick} isScroll={isScroll}>
+            <Space
+                align={"center"}
+                className={'space-class'}
+                direction={isScroll?'vertical':'horizontal'}
+                size={5}
+            >
                 {prefix}
-                <div>
+                <div className={'menu-label'}>
                     {children}
                 </div>
             </Space>

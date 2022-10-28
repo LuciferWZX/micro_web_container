@@ -1,19 +1,31 @@
 import React, {FC} from "react";
 import {Menu, MenuItem} from "@/components";
-import {ConnectedIcon} from "@/components/Icon";
+import {ConnectedIcon, JsonIcon} from "@/components/Icon";
+import {history} from "umi";
+import {useLocation} from "@@/exports";
+import {StyledSider} from "@/layouts/homeLayout/sider/style";
+import ScrollButton from "@/layouts/homeLayout/sider/ScrollButton";
+import {useModel} from "foca";
+import layoutStore from "@/stores/layout.store";
 
 const Sider:FC = () => {
+    const location = useLocation()
+    const isScroll = useModel(layoutStore,state => state.isScroll)
+    const navigatorRouter=(path:string)=>{
+        history.push(path)
+    }
   return(
-      <div>
-          <Menu selectedKeys={['socket']}>
-              <MenuItem id={'socket'} prefix={<ConnectedIcon/>}>
+      <StyledSider isScroll={isScroll}>
+          <Menu isScroll={isScroll} selectedKeys={[location.pathname]}>
+              <MenuItem onClick={()=>navigatorRouter('/socket')} id={'/socket'} prefix={<ConnectedIcon/>}>
                   socket
               </MenuItem>
-              <MenuItem id={'json-parse'} prefix={<ConnectedIcon/>}>
+              <MenuItem onClick={()=>navigatorRouter('/json')} id={'/json'} prefix={<JsonIcon />}>
                   json解析
               </MenuItem>
           </Menu>
-      </div>
+          <ScrollButton />
+      </StyledSider>
   )
 }
 export default Sider
