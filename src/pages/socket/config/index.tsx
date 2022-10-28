@@ -2,6 +2,7 @@ import React, {FC, useState} from "react";
 import {StyledSocketConfig} from "@/pages/socket/config/style";
 import {Segmented, Tooltip} from "antd";
 import { SegmentedValue } from "antd/lib/segmented";
+import WebsocketConfigForm from "@/pages/socket/config/WebsocketConfigForm";
 type SocketType = 'websocket'|'socketIo'
 const SocketConfig:FC = () => {
     const [socketType,setSocketType]=useState<SocketType>('websocket')
@@ -26,7 +27,9 @@ const SocketConfig:FC = () => {
                     />
                 </div>
                 <div className={'config-forms'}>
-                    xxxx
+                    {socketType === "websocket" &&(
+                        <WebsocketConfigForm/>
+                    )}
                 </div>
             </div>
         </StyledSocketConfig>

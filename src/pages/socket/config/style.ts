@@ -12,6 +12,8 @@ export const StyledSocketConfig = styled.div`
   .config-container{
     height: 80%;
     width: 80%;
+    max-width: 700px;
+    max-height: 700px;
     display: flex;
     flex-direction: column;
     .config-forms{
