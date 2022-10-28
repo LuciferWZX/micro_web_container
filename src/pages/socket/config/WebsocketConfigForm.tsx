@@ -1,5 +1,6 @@
 import React, {FC} from "react";
 import {Form, Input, Select} from "antd";
+import JsonEditor from "../../../components/JsonEditor";
 const {Option}=Select
 const WebsocketConfigForm:FC = () => {
     return(
@@ -28,7 +29,9 @@ const WebsocketConfigForm:FC = () => {
                 </Input.Group>
             </Form.Item>
             <Form.Item label={"参数"} >
-                xx
+                <JsonEditor style={{height:300}} onChange={(json)=>{
+                    console.log(json)
+                }} id={'params'}  />
             </Form.Item>
         </Form>
     )

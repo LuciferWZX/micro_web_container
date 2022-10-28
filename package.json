@@ -18,10 +18,12 @@
     "antd": "^4.23.5",
     "classnames": "^2.3.2",
     "foca": "^1.1.0",
+    "jsoneditor": "^9.9.2",
     "umi": "^4.0.26"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.1",
+    "@types/jsoneditor": "^9.9.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/styled-components": "^5.1.26",
