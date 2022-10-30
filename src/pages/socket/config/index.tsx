@@ -2,10 +2,10 @@ import React, {FC, useState} from "react";
 import {StyledSocketConfig} from "@/pages/socket/config/style";
 import {Segmented, Tooltip} from "antd";
 import { SegmentedValue } from "antd/lib/segmented";
-import WebsocketConfigForm from "@/pages/socket/config/WebsocketConfigForm";
-type SocketType = 'websocket'|'socketIo'
+import APIConfigForm from "@/pages/socket/config/APIConfigForm";
+type SocketType = 'socket-message-sender-api'|'socketIo'
 const SocketConfig:FC = () => {
-    const [socketType,setSocketType]=useState<SocketType>('websocket')
+    const [socketType,setSocketType]=useState<SocketType>('socket-message-sender-api')
     const changeType=(type:SegmentedValue)=>{
         setSocketType(type as SocketType)
     }
@@ -16,19 +16,19 @@ const SocketConfig:FC = () => {
                     <Segmented
                         value={socketType}
                         options={[
-                            { label: 'websocket', value: 'websocket', disabled: false },
+                            { label: '接口调用', value: 'socket-message-sender-api', disabled: false },
                             { label: (
                                     <Tooltip title={'暂不支持'} color={'#108ee9'}>
-                                        socket.io.client
+                                        socket
                                     </Tooltip>
-                                ), value: 'socketIo', disabled: true },
+                                ), value: 'socket', disabled: true },
                         ]}
                         onChange={changeType}
                     />
                 </div>
                 <div className={'config-forms'}>
-                    {socketType === "websocket" &&(
-                        <WebsocketConfigForm/>
+                    {socketType === "socket-message-sender-api" &&(
+                        <APIConfigForm/>
                     )}
                 </div>
             </div>

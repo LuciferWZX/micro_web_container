@@ -1,31 +1,41 @@
 import React, {FC, useEffect, useState} from "react";
-import JSONEditor, {JSONEditorMode, JSONEditorOptions} from 'jsoneditor';
+import JSONEditor, {JSONEditorMode, JSONEditorOptions, ParseError, SchemaValidationError} from 'jsoneditor';
 import 'jsoneditor/dist/jsoneditor.css'
 import './dark.less'
 import {StyledEditor} from "@/components/JsonEditor/style";
+import {useGetState} from "ahooks";
 
+type ValueType = [json: any,errors?: ReadonlyArray<SchemaValidationError | ParseError>]
 interface IProps{
     id:string
-    value?:any
+    value?:ValueType
     style?:React.CSSProperties
     option?:{
         mode?: JSONEditorMode | undefined
         modes?: JSONEditorMode[] | undefined
     }
-    onChange?:((json: any) => void) | undefined
+    onChange?:(value:ValueType)=>void
 }
 const JsonEditor:FC<IProps> = (props) => {
-    const [jsonEditor,setJsonEditor]=useState<JSONEditor|null>(null)
+    const [jsonEditor,setJsonEditor,getJsonEditor]=useGetState<JSONEditor|null>(null)
+    const [errorList,setErrorList,getErrorList]=useGetState<readonly (SchemaValidationError | ParseError)[]>([])
     useEffect(()=>{
         const container = document.getElementById(props.id)
         if(container){
             const option:JSONEditorOptions = {
-                modes:props?.option?.modes ?? ['tree' , 'view' , 'form' , 'code' , 'text' , 'preview'] ,
-                onChangeText:props.onChange,
-                onValidate: function (json) {
-                    console.log(222,json)
-                    return [];
+                modes:props?.option?.modes ?? ['code'] ,
+
+                onChangeText:(jsonString)=>{
+                    props?.onChange?.([jsonString,getErrorList()])
+                },
+                onValidationError: function (errors) {
+                    setErrorList(errors??[])
+                    props?.onChange?.([getJsonEditor()?.getText(),errors])
+                },
+                onError:(error)=>{
+
                 }
+
             }
             const newEditor = new JSONEditor(container,option)
             // newEditor.set(props.value)
@@ -40,7 +50,7 @@ const JsonEditor:FC<IProps> = (props) => {
     },[])
     useEffect(()=>{
         if(jsonEditor){
-            jsonEditor.update(props.value)
+            jsonEditor.updateText(props?.value?.[0] || "")
         }
     },[props.value])
     return(
