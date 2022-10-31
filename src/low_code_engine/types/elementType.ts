@@ -1,0 +1,2 @@
+export type ElementNodeType ="page"|"Row"|"Col"|"CascadeSelect"|"Checkbox"|"Datetime"|"TimeRange"|"Input"|"Password"|"Radio"
+    |"Select"|"Textarea"|"Upload"|"Download"|"Image"|"Link"|"Text"|"Switch"|"Button"

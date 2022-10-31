@@ -17,6 +17,9 @@ const Sider:FC = () => {
   return(
       <StyledSider isScroll={isScroll}>
           <Menu isScroll={isScroll} selectedKeys={[location.pathname]}>
+              <MenuItem onClick={()=>navigatorRouter('/lowCode')} id={'/lowCode'} prefix={<ConnectedIcon/>}>
+                  lowCode
+              </MenuItem>
               <MenuItem onClick={()=>navigatorRouter('/socket')} id={'/socket'} prefix={<ConnectedIcon/>}>
                   socket
               </MenuItem>
