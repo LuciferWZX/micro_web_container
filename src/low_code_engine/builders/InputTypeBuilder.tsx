@@ -4,7 +4,7 @@ import React, {FC} from "react";
 interface IProps extends TypeBuilder{
     schema:TypeBuilderContext
 }
-const InputTypeBuilder:FC<IProps>=(props)=>{
+const ElementTypeBuilder:FC<IProps>=(props)=>{
     const {build,schema}=props
 
     return (
@@ -13,4 +13,4 @@ const InputTypeBuilder:FC<IProps>=(props)=>{
         </div>
     )
 }
-export default InputTypeBuilder
+export default ElementTypeBuilder

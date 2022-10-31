@@ -17,28 +17,28 @@ export const useElementBuilder=(buildContext:TypeBuilderContext):BuildContext=>{
      * @param element
      * @param index
      */
-    const buildUI=useMemoizedFn((element:ElementNode,index:number):React.ReactNode=>{
-        const {type,children}=element
-        switch (type) {
-            case "page":{
-                return (
-                    <LowCodePage schema={element} key={index}>
-                        {children?.map((child,ind)=>buildUI(child,ind))}
-                    </LowCodePage>
-                )
-            }
-            case "Input":{
-                return <LowCodeInput schema={element} key={index} />
-            }
-            default:{
-                return (
-                    <div key={index}>
-                        暂无改类型
-                    </div>
-                )
-            }
-        }
-    })
+    // const buildUI=useMemoizedFn((element:ElementNode,index:number):React.ReactNode=>{
+    //     const {type,children}=element
+    //     switch (type) {
+    //         case "page":{
+    //             return (
+    //                 <LowCodePage schema={element} key={index}>
+    //                     {children?.map((child,ind)=>buildUI(child,ind))}
+    //                 </LowCodePage>
+    //             )
+    //         }
+    //         case "Input":{
+    //             return <LowCodeInput schema={element} key={index} />
+    //         }
+    //         default:{
+    //             return (
+    //                 <div key={index}>
+    //                     暂无改类型
+    //                 </div>
+    //             )
+    //         }
+    //     }
+    // })
 
     /**
      * way2
@@ -52,7 +52,7 @@ export const useElementBuilder=(buildContext:TypeBuilderContext):BuildContext=>{
             case "page":{
                 ele = (
                     <LowCodePage schema={element} key={index}>
-                        {children?.map((child,ind)=>buildUI(child,ind))}
+                        {children?.map((child,ind)=>memoBuildUI(child,ind))}
                     </LowCodePage>
                 )
                 break
@@ -76,6 +76,6 @@ export const useElementBuilder=(buildContext:TypeBuilderContext):BuildContext=>{
     }
 
     return {
-        buildNode:buildUI(elementNode,initIndex)
+        buildNode:memoBuildUI(elementNode,initIndex)
     }
 }

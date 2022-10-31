@@ -19,6 +19,8 @@
     "classnames": "^2.3.2",
     "foca": "^1.1.0",
     "jsoneditor": "^9.9.2",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "umi": "^4.0.26",
     "umi-request": "^1.4.0"
   },

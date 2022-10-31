@@ -13,7 +13,10 @@ const LowCodeInput:FC<IProps> = (props) => {
         return schema.props.style
     })
     return(
-        <StyledInput style={renderStyle()}  />
+        <StyledInput
+            style={renderStyle()}
+            placeholder={schema?.props?.placeholder}
+        />
     )
 }
 export default LowCodeInput

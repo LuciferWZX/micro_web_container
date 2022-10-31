@@ -11,7 +11,8 @@ const schema:ElementNode={
             props:{
                 style:{
                     color:'red',
-                }
+                },
+                placeholder:"请输入"
             }
         }
     ]

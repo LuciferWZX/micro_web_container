@@ -12,6 +12,7 @@ export interface ElementNode{
          * 设置的样式
          */
         style?:React.CSSProperties
+        placeholder?:string
         /**
          * Element 的所有props
          */
