@@ -13,7 +13,11 @@ const DraggableTable:FC = () => {
 
             <CustomDragLayer />
 
-            <DraggedCard title={"输入框"} />
+            {componentList.map(comp=>{
+                return(
+                    <DraggedCard key={comp.cId} item={comp} />
+                )
+            })}
         </StyledDraggable>
     )
 }

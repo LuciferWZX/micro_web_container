@@ -51,6 +51,7 @@ const CustomDragLayer:FC<IProps> = (props) => {
                 isDragging: monitor.isDragging(),
             }
         });
+    console.log(123,isDragging)
     const renderItem=()=>{
         switch (itemType) {
             case DraggedType.Card:

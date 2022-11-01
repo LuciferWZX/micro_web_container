@@ -9,17 +9,19 @@ interface IProps{
 }
 const DraggedCard:FC<IProps> = (props) => {
     const {item}=props
-    const [{isDragging},dragRef,preview]=useDrag(
+    const [{didDrop},dragRef,preview]=useDrag(
         ()=>({
             type:DraggedType.Card,
             item:{
-                name:props.title,
-                id:1
+                ...item
+            },
+            end:draggedItem => {
+                console.log("draggedItem",draggedItem)
             },
             collect:monitor => {
                 return {
                     cursor:monitor.isDragging()?'grabbing':'pointer',
-                    isDragging:monitor.isDragging()
+                    didDrop:monitor.didDrop()
                 }
             },
 
@@ -31,7 +33,7 @@ const DraggedCard:FC<IProps> = (props) => {
     }, []);
     return(
         <div ref={dragRef} >
-            {props.title}
+            {props.item.name}
         </div>
     )
 }
