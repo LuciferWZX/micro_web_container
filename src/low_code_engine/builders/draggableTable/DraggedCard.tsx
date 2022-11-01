@@ -2,12 +2,13 @@ import React, {FC, useEffect} from "react";
 import {useDrag} from "react-dnd";
 import {getEmptyImage} from "react-dnd-html5-backend";
 import {DraggedType} from "@/low_code_engine/types/draggedType";
+import {ComponentItem} from "@/low_code_engine/stores/componentsList";
 
 interface IProps{
-    title:string
-
+    item:ComponentItem
 }
 const DraggedCard:FC<IProps> = (props) => {
+    const {item}=props
     const [{isDragging},dragRef,preview]=useDrag(
         ()=>({
             type:DraggedType.Card,
