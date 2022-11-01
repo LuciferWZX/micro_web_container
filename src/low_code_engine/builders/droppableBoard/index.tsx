@@ -1,12 +1,13 @@
 import React, {FC} from "react";
 import {StyledDroppable} from "@/low_code_engine/builders/droppableBoard/style";
 import {useDrop} from "react-dnd";
+import {DraggedType} from "@/low_code_engine/types/draggedType";
 interface IProps{
     children?:React.ReactNode
 }
 const DroppableBoard:FC<IProps> = (props) => {
     const [collectProps,dropRef]=useDrop({
-        accept:'Box',
+        accept:DraggedType.Card,
         collect:(monitor)=>({
             isOver:monitor.isOver(),
             res:monitor.getDropResult()
