@@ -2,6 +2,7 @@ import {ElementNodeType} from "@/low_code_engine/types/elementType";
 import React from "react";
 
 export interface ElementNode{
+    id:string
     /**
      * Element 唯一类型type
      */

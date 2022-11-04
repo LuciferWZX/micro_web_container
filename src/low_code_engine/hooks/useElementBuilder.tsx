@@ -1,15 +1,12 @@
 import {TypeBuilderContext} from "@/low_code_engine/types/typeBuilder";
 import React, {useMemo} from "react";
-import {ElementNodeType} from "@/low_code_engine/types/elementType";
 import {LowCodeInput, LowCodePage} from "@/low_code_engine/components";
 import {ElementNode} from "@/low_code_engine/types/elementNode";
-import {useMemoizedFn} from "ahooks";
 
 interface BuildContext{
     buildNode:React.ReactNode
-
 }
-export const useElementBuilder=(buildContext:TypeBuilderContext):BuildContext=>{
+export const useElementBuilder=(buildContext:TypeBuilderContext,mode:"edit"|"preview"):BuildContext=>{
     const {elementNode,initIndex = 0}=buildContext
     /**
      * way1
@@ -51,9 +48,7 @@ export const useElementBuilder=(buildContext:TypeBuilderContext):BuildContext=>{
         switch (type) {
             case "page":{
                 ele = (
-                    <LowCodePage schema={element} key={index}>
-                        {children?.map((child,ind)=>memoBuildUI(child,ind))}
-                    </LowCodePage>
+                    <LowCodePage mode={mode} schema={element} key={index} />
                 )
                 break
             }

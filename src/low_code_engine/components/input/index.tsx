@@ -10,7 +10,7 @@ const LowCodeInput:FC<IProps> = (props) => {
     const {schema}=props
     console.log('input:',schema)
     const renderStyle = useMemoizedFn(():React.CSSProperties|undefined=>{
-        return schema.props.style
+        return schema.props?.style
     })
     return(
         <StyledInput

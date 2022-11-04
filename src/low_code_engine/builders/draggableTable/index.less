@@ -1,0 +1,21 @@
+.grid-box{
+  display: grid;
+  grid-template-columns:repeat(2,1fr);
+  justify-items: center;
+  grid-gap: 1px;
+  padding: 1px;
+}
+.drag-ghost{
+  background-color: red;
+  height: 2px;
+  overflow: hidden;
+}
+.drag-dragging{
+  height: 28px!important;
+  width: inherit!important;
+  border-radius: 4px;
+  padding: 6px 8px 6px 8px;
+  box-shadow: 0 3px 6px 0 #00000026;
+  flex-direction: row;
+  margin-top: 50%;
+}

@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const StyledDraggable = styled.div`
     width: 200px;
+  user-select: none;
 `
 export const StyledDragPreview = styled.div`
   position:fixed;
@@ -12,11 +13,11 @@ export const StyledDragPreview = styled.div`
   cursor: grab;
 `
 export const StyledDragCard = styled.div`
+  display: flex;
   height: 28px;
-  width: 84px;
+  width: inherit;
   border-radius: 4px;
   padding: 6px 8px 6px 8px;
   box-shadow: 0 3px 6px 0 #00000026;
-  background-color: white;
-  cursor: grab;
+  flex-direction: row;
 `
