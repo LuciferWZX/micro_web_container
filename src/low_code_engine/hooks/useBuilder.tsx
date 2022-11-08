@@ -3,6 +3,8 @@ import React, {useMemo} from "react";
 import {LowCodeInput, LowCodePage} from "@/low_code_engine/components";
 import {ElementNode} from "@/low_code_engine/types/elementNode";
 import {TSchema} from "@/low_code_engine/types/schema";
+import {useModel} from "foca";
+import engineStore from "@/low_code_engine/stores/engine.store";
 
 interface BuildContext{
     buildNode:(element:ElementNode,key:string)=>React.ReactNode
@@ -21,7 +23,7 @@ export const useBuilder=(mode:"edit"|"preview"):BuildContext=>{
             }
             case "Input":{
                 ele=(
-                    <LowCodeInput schema={element} key={key} />
+                    <LowCodeInput mode={mode} schema={element} key={key} />
                 )
                 break
             }

@@ -39,7 +39,7 @@ const DraggableTable:FC = () => {
                 //ghostClass={'drag-ghost'}
                 className={'grid-box'}
                 dragClass={'drag-dragging'}
-                animation={200}
+                //animation={200}
                 forceFallback={true}
                 list={list}
                 setList={updateList}>

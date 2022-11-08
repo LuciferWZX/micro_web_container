@@ -21,7 +21,7 @@ const SortableContainer:FC<IProps> = (props) => {
     const {buildNode} =useBuilder(mode)
     useEffect(()=>{
         setList(schema.children||[])
-    },[schema])
+    },[schema.children])
     const updateList=(newList:ElementNode[], sortable:Sortable| null)=>{
         console.log("1111",newList)
         console.log("2222",sortable)
@@ -39,11 +39,17 @@ const SortableContainer:FC<IProps> = (props) => {
         <ReactSortable
             group={{
                 name:DraggedType.Card,
+                pull:true,
+                put:true
             }}
             className={'edit-sortable-container'}
             dragClass={'drag-dragging'}
+            ghostClass={'drag-ghost'}
             animation={200}
             forceFallback={true}
+            onStart={(evt, sortable, store)=>{
+                console.log(123,evt)
+            }}
             list={list}
             setList={updateList}>
             {list.map(_child=>{
