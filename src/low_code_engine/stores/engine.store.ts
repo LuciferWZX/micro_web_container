@@ -6,6 +6,7 @@ interface EngineData {
     componentsList:ComponentItem[]
     schema:TSchema
     mode:"edit"|"preview"
+    hoverId:string|null
 }
 
 export const initSchema:TSchema={
@@ -17,7 +18,8 @@ export const initSchema:TSchema={
 const initialState:EngineData = {
     componentsList:COMPONENT_LIST,
     schema:initSchema,
-    mode:"edit"
+    mode:"edit",
+    hoverId:null
 }
 const EngineModel = defineModel('engine', {
     initialState,

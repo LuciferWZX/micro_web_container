@@ -23,8 +23,7 @@ const SortableContainer:FC<IProps> = (props) => {
         setList(schema.children||[])
     },[schema.children])
     const updateList=(newList:ElementNode[], sortable:Sortable| null)=>{
-        console.log("1111",newList)
-        console.log("2222",sortable)
+
         if(sortable?.options.group === DraggedType.Card){
 
         }

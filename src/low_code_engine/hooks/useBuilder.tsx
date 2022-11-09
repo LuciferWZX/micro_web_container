@@ -5,6 +5,7 @@ import {ElementNode} from "@/low_code_engine/types/elementNode";
 import {TSchema} from "@/low_code_engine/types/schema";
 import {useModel} from "foca";
 import engineStore from "@/low_code_engine/stores/engine.store";
+import DragBox from "../components/dragBox";
 
 interface BuildContext{
     buildNode:(element:ElementNode,key:string)=>React.ReactNode
@@ -12,6 +13,7 @@ interface BuildContext{
 export const useBuilder=(mode:"edit"|"preview"):BuildContext=>{
 
     const memoBuildUI=(element:ElementNode,key:string):React.ReactNode=>{
+
         const {type}=element
         let ele:React.ReactNode = null
         switch (type) {
@@ -22,9 +24,7 @@ export const useBuilder=(mode:"edit"|"preview"):BuildContext=>{
                 break
             }
             case "Input":{
-                ele=(
-                    <LowCodeInput mode={mode} schema={element} key={key} />
-                )
+                ele=(<LowCodeInput mode={mode} schema={element} key={key} />)
                 break
             }
             default:{
@@ -36,7 +36,7 @@ export const useBuilder=(mode:"edit"|"preview"):BuildContext=>{
                 break
             }
         }
-        return ele
+        return  <DragBox schema={element} key={key}>{ele}</DragBox>
     }
 
     return {
